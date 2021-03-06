@@ -1,0 +1,130 @@
+
+.buscador {
+	color: green;
+	width: 100%;
+
+	label {
+		color: red;
+	}
+	
+	ul {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.contador {
+
+	button {
+		background-color: green;
+		color: white;
+		border-radius: 15px;
+		border-width: 0px;
+		padding: 16px;
+		margin: 10px 40px;
+		border-style: none;
+		outline: none;
+		cursor: grab;
+	}
+
+	&:hover {
+		background-color: #00a300;
+	}
+}
+
+h1 {
+
+	color:darkblue;
+	text-align: center;
+
+}
+
+label {
+
+	color: gray;
+
+}
+
+input {
+
+	border: none;
+	border-bottom: 1px solid blue
+
+}
+
+.container {
+	background-image: url("/pruebas/images/base.jpg");
+	margin: auto;
+	width: 70%;
+	border-radius: 8%;
+	display: grid;
+	grid-template-columns: repeat(3, 30%);
+	grid-template-rows: repeat(3, 30%);
+	cursor: default;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+
+	>div {
+		/* display: inline; */
+		margin: 10px;
+		
+	}
+
+}
+
+.reloj {
+
+	font-style: italic;
+
+}
+
+.hora {
+
+	text-align: center;
+
+}
+
+.contenedor-reloj {
+
+	background-color: lemonchiffon;
+	margin: auto;
+	width: 20%;
+	border-radius: 20%;
+	
+}
+
+.bloque1 {
+
+	display: inline; 
+	width: 	50%;
+
+}
+
+.bloque2 {
+
+	display: inline; 
+	width: 	50%;
+
+}
+
+.rojo {
+
+	color: red;
+
+}
+
+.verde {
+
+	color: green;
+
+}
+
+.botonmaquina {
+
+	width: 100px; 
+	margin: 0 auto; 
+	display: block;
+    
+
+}
