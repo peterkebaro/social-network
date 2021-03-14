@@ -27,7 +27,7 @@
 		cursor: grab;
 	}
 
-	&:hover {
+	:hover {
 		background-color: #00a300;
 	}
 }
@@ -53,13 +53,15 @@ input {
 }
 
 .container {
-	//background-image: url("/pruebas/images/base.jpg");
+
+	background-image: url("./src/pruebas/images/base.jpg");
 	margin: auto;
-	width: 70%;
+	width: 40%;
 	border-radius: 8%;
 	display: grid;
-	grid-template-columns: repeat(3, 30%);
-	grid-template-rows: repeat(3, 30%);
+	padding-top: 15px;
+	grid-template-columns: repeat(3, 100px);
+	grid-template-rows: repeat(3, 100px);
 	cursor: default;
 	text-align: center;
 	align-items: center;
@@ -68,6 +70,7 @@ input {
 	>div {
 		/* display: inline; */
 		margin: 10px;
+		// border: solid 10px #d3d3d3bb;
 		
 	}
 
@@ -120,11 +123,16 @@ input {
 
 }
 
-.botonmaquina {
+.boton-maquina {
+ 	width: 30%;
+	margin: auto; 
+	// align-items: center;
+	text-align: center;
+  // margin-left: auto;
+  // margin-right: auto;
+}
 
-	width: 100px; 
-	margin: 0 auto; 
-	display: block;
-    
+.winner {
 
+	margin: auto; 
 }

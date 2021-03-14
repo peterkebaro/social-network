@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { humanMove, ganadorPartida, init, ponerFicha, arrayInicio, casillasVacias } from "../tik-tak-toe/engine";
-import Marmol from "./images/base.jpg";
+import Marmol from "./images/cuadricula.jpg";
 import Player1 from "./images/player1.png";
 import Player2 from "./images/player2.png";
 
@@ -61,7 +61,7 @@ export class TablaN extends Component<TableNProps, TablaNState> {
 		
 		return (
 			<div>
-				<div className="botonMaquina">
+				<div className="boton-maquina"> 
 					{
 						<button 
 							onClick={ () => this.jugadaOrdenador() }
@@ -93,7 +93,7 @@ export class TablaN extends Component<TableNProps, TablaNState> {
 					}
 				</div>
 				{ winner!==0 &&	
-					<h2>Ha ganado {winner}</h2>
+					<h2 className="winner">Ha ganado el jugador {winner}</h2>
 				}
 			</div>
 		)

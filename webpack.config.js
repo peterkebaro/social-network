@@ -24,22 +24,31 @@ module.exports = ( env, arg ) => {
 					test: /\.css$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"css-loader"
+						{
+							loader: "css-loader",
+							options: {
+								url: false
+							}
+						
+						},
+					
 					],
-					// options: {
-					// 	url: false
-					// }
+				
 				},
 				{
 			    	test: /\.(sass|scss)$/,
 			    	use: [
 							MiniCssExtractPlugin.loader, 
-							'css-loader',
+							{
+								loader: "css-loader",
+								options: {
+									url: false
+								}
+								
+							},
 							'sass-loader',
 					],
-					// options: {
-					// 	url: false
-					// }
+					
 			  },
 				{
 					test: /\.(png|jpe?g|gif)$/,
