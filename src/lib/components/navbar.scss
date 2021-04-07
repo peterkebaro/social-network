@@ -1,0 +1,32 @@
+.navbar {
+	width: 100%;
+	min-height: 3em;
+	background-color: rgb(254, 255, 177);
+	position: fixed;
+	top: 0;
+	display: inline-flex;
+
+	h2 {
+		margin: 0;
+		color: rgb(99, 180, 133);
+		padding: 0 1em;
+		line-height: normal;
+	}
+
+	img {
+		max-height: 3em;
+	}
+	
+	a {
+		background-color: rgb(254, 255, 177);
+		padding: 1em;
+		// min-height: 3em;
+		color: rgb(99, 180, 133);
+		text-decoration: none;
+	
+		&:hover {
+			background-color: #d2f7a2;
+			color: rgb(99, 180, 133);
+		}
+	}
+}
