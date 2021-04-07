@@ -1,36 +1,71 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Counter } from './pruebas/contador'
-import { Buscador } from './pruebas/buscador'
-import { Reloj } from './pruebas/reloj'
-import { TablaN } from "./pruebas/tablan";
 import { Profile } from "./usuario/profile";
-import { Usuario } from "./usuario/user";
+import { User } from "./usuario/user";
+import { UserStore } from "./store/user-store";
+import { FindUser } from "./usuario/find-user";
+import { Pruebas } from "./pruebas/pruebas";
+import { Navbar } from "./lib/components/navbar";
 
+enum NavMenus { none, pruebas, usuario }
+interface AppState {
+	user: User
+	selectedNavMenu: NavMenus
+}
 
-export function App() {
-	const usuario = new Usuario()
-
-	const cambiarUsuario = (user: Usuario) => {
-		usuario.nombre = user.nombre
-		usuario.correo = user.correo
-		usuario.nick = user.nick
-		usuario.password = user.password
-		usuario.bio = user.bio
-		usuario.foto = user.foto
+export class App extends Component<{}, AppState> {
+	constructor( props ) {
+		super( props )
+		this.state = {
+			user: null,
+			selectedNavMenu: NavMenus.none
+		}
 	}
 
-	return (
-		<div>
-			<h1 id="1" className="css">Hola mundo desde React</h1>
-			<Counter startOn={5}/>
-			<Buscador />
-			<Reloj />
-			<TablaN size={3}/>
-			<Profile usuario={ usuario } onUserChange={ user => cambiarUsuario( user ) }/>
-			<button onClick={ ()=>console.log( usuario )}>Ver usuario</button>
-		</div>
-	)
+	changeUser(newUser: User) {
+		this.setState({
+			user: {...newUser}
+		})
+		UserStore.save( newUser )
+	}
+
+	// const promise = UserStore.getAll()
+	// console.log( 'after getAll', promise )
+
+	menuNavClicked( selectedMenu: NavMenus ) {
+		this.setState({
+			selectedNavMenu: selectedMenu
+		})
+	}
+
+	render() {
+		const { user, selectedNavMenu } = this.state
+
+		console.log(user)
+
+		return (
+			<div>
+				<Navbar className="main-menu">
+					<h2>Piar</h2>
+					<img src="./src/pruebas/images/bird.jpeg"/>
+					<a href="#" onClick={ ()=>this.menuNavClicked(NavMenus.pruebas)}>Pruebas</a>
+					<a href="#" onClick={ ()=>this.menuNavClicked(NavMenus.usuario)}>Usuario</a>
+				</Navbar>
+			
+				{ selectedNavMenu === NavMenus.pruebas	&&
+					<Pruebas />
+				}
+
+				{ selectedNavMenu === NavMenus.usuario &&
+					<div>
+						<FindUser onUserFound={ user => this.setState({ user: user }) }/>
+						<Profile usuario={ user } onUserChange={ user => this.changeUser( user ) }/>
+						<button onClick={ ()=>console.log( user )}>Ver usuario</button>
+					</div>
+				}
+			</div>
+		)
+	}
 }
 
 ReactDOM.render( <App/>, document.getElementsByTagName('Application')[0])

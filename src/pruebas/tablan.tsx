@@ -47,7 +47,8 @@ export class TablaN extends Component<TableNProps, TablaNState> {
 	jugadaOrdenador() {
 		let espacios: number[] = casillasVacias()
 		const tablero = ponerFicha(espacios)
-		
+		//const tablero = bestMove (espacios)
+
 		this.setState({
 
 			tablero: tablero

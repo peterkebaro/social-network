@@ -1,13 +1,12 @@
 
 
-export class Usuario {
+export class User {
 
-    public nombre: string
+    public name: string
 	public nick: string
     public password: string
-    public correo: string
+    public email: string
     public bio: string
-    public foto: string
-
+    public picture: string
 
 }

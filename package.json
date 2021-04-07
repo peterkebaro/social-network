@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "build": "webpack --mode=production",
-    "server": "json-server --watch db.json"
+    "server": "json-server --no-cors --watch src/server/db.json"
   },
   "author": "Pedro Rodriguez",
   "license": "ISC",

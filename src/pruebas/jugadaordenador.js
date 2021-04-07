@@ -8,21 +8,36 @@
 let puntosTotales = [[0,0,0],[0,0,0],[0,0,0]]
 
 
-function jugadaOrdenador(vacias, inicio) {
+export function bestMove( posicionesVacias ) {
 
+        let contador = 0
+
+        for ( let i = 0; i < posicionesVacias.length; i++ ) {
     
+            ponerficha( posicionesVacias ) //Revisar la lógica a la hora de ir poniendo las fichas.
+            
+            if ( ganadorPartida() ) {
+    
+                contador++
+    
+            }
 
+            bestMove( posicionesVacias )
+            
+            puntosTotales[i][j] = contador //Ver como asignar las i y j para que ponga los puntos de cada hilo del árbol
 
-    for ( let i = 0; i < tablero.length; i++ ) {
-
-
-        sumatoria += jugadaOrdenador(vacias, i)
-
-
-
-    }
-
-    return casilla
-
+        }
+       
+        // let posicionJugada = mejorJugada
+    
+        // let posicionFinal = posicionesVacias[posicionJugada]
+        // let fila = posicionFinal[0]
+        // let columna = posicionFinal[1]
+            
+        // tablero[fila][columna] = cpuPlayer
+    
+    
+        return tablero
+    
 }
 

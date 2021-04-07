@@ -3,7 +3,7 @@
 ## Cosas para hacer
 
 - Gestión usuario
-- Entrar el twitt
+- Entrar el tweet
 - pantalla principal 
     - Izquierda: Foto perfil y descripción
     - Centro: Muro de tweets

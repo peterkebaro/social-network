@@ -217,3 +217,30 @@ export function humanMove( x: number, y: number ) {
     return tablero
 }
 
+// export function bestMove( posicionesVacias ) {
+
+//     for ( let i = 0; i < posicionesVacias.length; i++ ) {
+
+//         bestMove( posicionesVacias )
+        
+
+//     }
+
+//     if ( ganadorPartida() ) 
+
+//     let mejorJugada = [0,1] // Arreglar ésto
+
+
+//     let posicionJugada = mejorJugada
+
+//     let posicionFinal = posicionesVacias[posicionJugada]
+//     let fila = posicionFinal[0]
+//     let columna = posicionFinal[1]
+        
+//     tablero[fila][columna] = cpuPlayer
+
+
+//     return tablero
+
+// }
+
