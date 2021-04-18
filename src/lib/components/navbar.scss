@@ -1,17 +1,19 @@
+@import "../../styles/styles";
+
 .navbar {
 	width: 100%;
-	min-height: 3em;
+	min-height: $menu-height;
 	background-color: #FDFEE0;
 	position: fixed;
 	top: 0;
 	display: inline-flex;
+	align-items: center;
 
 	h2 {
 		margin: 0;
 		color: rgb(99, 180, 133);
 		padding: 0 1em;
-		line-height: normal;
-        font-size: xx-large;
+		font-size: xx-large;
 	}
 
 	img {
@@ -30,4 +32,25 @@
 			color: rgb(99, 180, 133);
 		}
 	}
+
+	// @media all and (max-width: 400px) {
+	&.mobile {
+		display: block;
+		
+		img {
+			display: none;
+		}
+		h2 {
+			font-size: medium;
+		}
+	}
+
+	.menu-item {
+		display: block;
+	}
+
+	&.hide-menu-items .menu-item {
+		display: none;
+	}
+
 }

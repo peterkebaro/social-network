@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { User } from "./user";
-import { UserStore } from "../store/user-store";
+import { User } from "../user";
+import { UserStore } from "../../store/user-store";
 
 interface FindUserState {
 	id: string

@@ -1,3 +1,4 @@
+@import "./constants";
 
 body {
 	margin: 0;
@@ -9,8 +10,8 @@ input {
 
 }
 
-.container {
-	margin-top: 3em;
+.body-container {
+	margin-top: $menu-height + 3em;
 }
 
 .buscador {

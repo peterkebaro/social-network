@@ -1,4 +1,4 @@
-import { User } from "../usuario/user";
+import { User } from "../user/user";
 
 /**
  * This class will take care of user storage or persistence

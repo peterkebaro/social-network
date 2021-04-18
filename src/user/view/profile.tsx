@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {User} from '../usuario/user'
+import { UserStore } from '../../store/user-store'
+import {User} from '../user'
 
 
 interface ProfileState extends User {}
 
 interface ProfileProps {
-    usuario: User
-    onUserChange: ( user: User )=>void
+    // user: User
 }
 
 export class Profile extends Component <ProfileProps, ProfileState>{
@@ -14,18 +14,29 @@ export class Profile extends Component <ProfileProps, ProfileState>{
     constructor ( props: ProfileProps ) {
 
         super ( props )
-        this.state = { ...props.usuario }
+        // this.state = { ...props.user }
         
     }
     
-    componentDidUpdate(prevProps: ProfileProps ) {
-        if ( prevProps.usuario !== this.props.usuario ) {
-            console.log( 'props', this.props.usuario )
-            this.setState({
-                ...this.props.usuario
-            })
-        }
-    }
+    // componentDidUpdate(prevProps: ProfileProps ) {
+    //     if ( prevProps.user !== this.props.user ) {
+    //         console.log( 'props', this.props.user )
+    //         this.setState({
+    //             ...this.props.user
+    //         })
+    //     }
+    // }
+
+
+	onUserChange(newUser: User) {
+
+        this.setState({
+			...newUser
+		})
+
+		UserStore.save( newUser )
+	}
+
 
     render () {
         const { name: nombre, nick, bio, email: correo, picture: foto } = this.state
@@ -51,7 +62,7 @@ export class Profile extends Component <ProfileProps, ProfileState>{
                 <label>Foto: </label>
                 <input value={ foto } onChange={ event => this.setState({ picture: event.target.value }) }/><br/><br/> 
 				
-                <button onClick={ ()=>this.props.onUserChange( this.state as User )}>Validar usuario</button>
+                <button onClick={ ()=>this.onUserChange( this.state as User )}>Update User</button>
 			</div>
 		)
 
