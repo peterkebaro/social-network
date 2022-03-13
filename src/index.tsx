@@ -10,6 +10,7 @@ import { NavbarBulma } from "./lib/components/navbar-bulma";
 import "./styles/styles.scss";
 import { Dashboard } from "./user/view/dashboard";
 
+
 enum NavMenus { none, pruebas, usuario }
 interface AppState {
 	selectedNavMenu: NavMenus

@@ -3,6 +3,7 @@ import { Counter } from './contador'
 import { Buscador } from './buscador'
 import { Reloj } from './reloj'
 import { TablaN } from './tablan'
+import { Cajetin } from "./cajetin";
 
 
 export function Pruebas () {
@@ -14,6 +15,7 @@ export function Pruebas () {
 					<Buscador />
 					<Reloj />
 					<TablaN size={3}/>
+					<Cajetin color="verde"/>
         </div>
 
 
