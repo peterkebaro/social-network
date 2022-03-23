@@ -6,9 +6,20 @@ import {Profile} from "./profile"
 export class Dashboard extends Component{
 
 
-    changeConfig() {
+    signUp() {
 
         
+
+    }
+
+    unsubscribe() {
+
+        
+
+    }
+
+    userState() {
+
 
     }
 
@@ -18,15 +29,15 @@ export class Dashboard extends Component{
 
             <div className="dashboard">
                 <div> 
-                    <button onClick={ () => this.changeConfig() }>Account configuration</button>
-                    <button>Languages</button>
-                    <button>Delete User</button>
+                    <button onClick={ () => this.signUp() }>Alta</button>
+                    <button onClick={ () => this.unsubscribe() }>Baja</button>
+                    <button onClick={ () => this.userState() }>Estado</button>    
+                </div>    
+                <div>
+                    <Profile />
                 </div>
-								<div>
-									<h2>Not implemented</h2>
-								</div>
+                
             </div>
-
         )
     }    
 }

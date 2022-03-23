@@ -6,12 +6,15 @@ import { UserStore } from "./store/user-store";
 import { FindUser } from "./user/view/find-user";
 import { Pruebas } from "./pruebas/pruebas";
 import { Navbar } from "./lib/components/navbar";
-import { NavbarBulma } from "./lib/components/navbar-bulma";
 import "./styles/styles.scss";
 import { Dashboard } from "./user/view/dashboard";
+import { Agenda } from "./pruebas/componente";
+import { Cripto } from "./pruebas/cripto";
 
 
 enum NavMenus { none, pruebas, usuario }
+// type NavMenusStr = 'none' | 'pruebas' | 'usuario'
+
 interface AppState {
 	selectedNavMenu: NavMenus
 }
@@ -45,8 +48,10 @@ export class App extends Component<{}, AppState> {
 					<a href="#" className="menu-item" onClick={ ()=>this.menuNavClicked(NavMenus.usuario)}>Usuario</a>
 				</Navbar>
 
+				
+
 				<div className="body-container">
-					{/* <NavbarBulma/> */}
+					
 				
 					{ selectedNavMenu === NavMenus.pruebas	&&
 						<Pruebas />
@@ -61,6 +66,12 @@ export class App extends Component<{}, AppState> {
 						// </div>
 					}
 				</div>
+				< Agenda 
+					datos={[ { name: 'Pepe', tel: '5555555'}, { name: 'Ana', tel: '66666666'} ]}
+					onDataChange={ ( record, datos )=> window.alert(`Los datos cambiaron => ${ record.name }. El numero total de registros es ${ datos.length }`) }
+				/>
+				<br/><br/>
+				< Cripto criptos={[ { cripto: 'Bitcoin', precio: '40000'}, { cripto: 'Cardano', precio: '0,80'} ]}/>
 			</div>
 		)
 	}

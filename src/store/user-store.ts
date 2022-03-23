@@ -10,9 +10,24 @@ export class UserStore {
 	 * 
 	 * @param user the user to store
 	 */
-	static save( user: User ): Promise<Response> {
+	 static save( user: User ): Promise<Response> {
 		return fetch('http://localhost:3000/users', {
 			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify( user )
+		})
+
+		// api REST 
+		// get method http://localhost:3000/usuarios (endpoint)
+
+		// post method
+	}
+
+	static update( user: User ): Promise<Response> {
+		return fetch(`http://localhost:3000/users/${ user.id }`, {
+			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -61,9 +76,15 @@ export class UserStore {
 		user.email = datos.email
 		user.bio = datos.bio
 		user.picture = datos.picture
-
+		
 		return user
 
+	}
+
+	static deleteUser( id: number ): Promise<void> {
+		return fetch( `http://localhost:3000/users/${id}`, {
+			method: 'DELETE',
+		}) as unknown as Promise<void>
 	}
 
 

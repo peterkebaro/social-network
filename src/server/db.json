@@ -1,112 +1,64 @@
 {
   "users": [
     {
-      "name": "pepe",
-      "id": 1
-    },
-    {
+      "name": "Juan",
+      "password": "kdsfjkasd@sjdf.com",
       "id": 2
     },
     {
-      "id": 3
+      "id": 4,
+      "name": "Ralph",
+      "email": "7777",
+      "password": "djsfks@fsjdf.com"
     },
     {
-      "id": 4
+      "id": 6,
+      "name": "Raljsdf",
+      "nick": "asdfasdf",
+      "bio": "asdf",
+      "password": "jksdjkf@ksdfj"
     },
     {
-      "name": "pepe",
-      "id": 5
-    },
-    {
-      "nombre": "cfgfdgfdg",
-      "id": 6
-    },
-    {
-      "name": "pepe",
+      "name": "dfgdfgfdg",
+      "nick": "66666666666666",
+      "email": "fdgdfg",
       "id": 7
     },
     {
-      "name": "pepe",
+      "name": "Ralph",
+      "password": "djsfks@fsjdf.com",
       "id": 8
     },
     {
-      "name": "pepe",
+      "name": "Ralph",
+      "email": "cvvbnvb",
+      "password": "djsfks@fsjdf.com",
       "id": 9
     },
     {
-      "name": "pepe",
+      "name": "Juan",
+      "email": "rfgergergerg",
+      "password": "kdsfjkasd@sjdf.com",
       "id": 10
     },
     {
-      "name": "pepe",
+      "name": "Ralph",
+      "email": "5555555555",
+      "password": "djsfks@fsjdf.com",
       "id": 11
     },
     {
-      "name": "pepe",
+      "name": "ghjghj",
       "id": 12
     },
     {
-      "name": "pepe",
+      "name": "y",
+      "nick": "",
+      "bio": "",
+      "email": "",
+      "picture": "",
+      "password": "",
       "id": 13
-    },
-    {
-      "name": "pepe",
-      "id": 14
-    },
-    {
-      "name": "pepe",
-      "id": 15
-    },
-    {
-      "name": "pepe",
-      "id": 16
-    },
-    {
-      "name": "pepe",
-      "id": 17
-    },
-    {
-      "name": "pepe",
-      "id": 18
-    },
-    {
-      "id": 19
-    },
-    {
-      "name": "pepe",
-      "id": 20
-    },
-    {
-      "id": 21
-    },
-    {
-      "name": "pepe",
-      "id": 22
-    },
-    {
-      "name": "pepe",
-      "id": 23
-    },
-    {
-      "name": "pepe",
-      "id": 24
-    },
-    {
-      "name": "pepe",
-      "id": 25
-    },
-    {
-      "name": "pepe",
-      "id": 26
-    },
-    {
-      "name": "pepe",
-      "id": 27
-    },
-    {
-      "name": "pepe",
-      "email": "kajaj@gmail.com",
-      "id": 28
     }
   ]
 }
