@@ -1,64 +1,19 @@
 {
   "users": [
     {
-      "name": "Juan",
-      "password": "kdsfjkasd@sjdf.com",
-      "id": 2
-    },
-    {
-      "id": 4,
-      "name": "Ralph",
-      "email": "7777",
-      "password": "djsfks@fsjdf.com"
-    },
-    {
-      "id": 6,
-      "name": "Raljsdf",
-      "nick": "asdfasdf",
-      "bio": "asdf",
-      "password": "jksdjkf@ksdfj"
-    },
-    {
-      "name": "dfgdfgfdg",
-      "nick": "66666666666666",
-      "email": "fdgdfg",
-      "id": 7
-    },
-    {
-      "name": "Ralph",
-      "password": "djsfks@fsjdf.com",
-      "id": 8
-    },
-    {
-      "name": "Ralph",
-      "email": "cvvbnvb",
-      "password": "djsfks@fsjdf.com",
-      "id": 9
-    },
-    {
-      "name": "Juan",
-      "email": "rfgergergerg",
-      "password": "kdsfjkasd@sjdf.com",
-      "id": 10
-    },
-    {
-      "name": "Ralph",
-      "email": "5555555555",
-      "password": "djsfks@fsjdf.com",
-      "id": 11
-    },
-    {
-      "name": "ghjghj",
-      "id": 12
-    },
-    {
-      "name": "y",
-      "nick": "",
+      "id": 2,
+      "name": "Adua",
+      "nick": "sdfas",
       "bio": "",
-      "email": "",
+      "email": "fghfh",
       "picture": "",
-      "password": "",
-      "id": 13
+      "password": "fghgfh"
+    },
+    {
+      "name": "fasdfa",
+      "email": "asdfas",
+      "password": "dfasd",
+      "id": 3
     }
   ]
 }

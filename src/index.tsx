@@ -10,6 +10,7 @@ import "./styles/styles.scss";
 import { Dashboard } from "./user/view/dashboard";
 import { Agenda } from "./pruebas/componente";
 import { Cripto } from "./pruebas/cripto";
+import { Cars } from "./pruebas/cars";
 
 
 enum NavMenus { none, pruebas, usuario }
@@ -17,13 +18,17 @@ enum NavMenus { none, pruebas, usuario }
 
 interface AppState {
 	selectedNavMenu: NavMenus
+	criptos: any[]
+	cars: any[]
 }
 
 export class App extends Component<{}, AppState> {
 	constructor( props ) {
 		super( props )
 		this.state = {
-			selectedNavMenu: NavMenus.none
+			selectedNavMenu: NavMenus.none,
+			criptos: [ { cripto: 'Bitcoin', precio: 55000}, { cripto: 'Cardano', precio: 0.80 } ],
+			cars: [ { marca: 'Audi', precio: 30000}, { marca: 'Bmw', precio:50000}, { marca: 'Porsche', precio:80000} ]
 		}
 	}
 
@@ -37,7 +42,7 @@ export class App extends Component<{}, AppState> {
 	}
 
 	render() {
-		const { selectedNavMenu } = this.state
+		const { selectedNavMenu, criptos, cars } = this.state
 
 		return (
 			<div className="">
@@ -71,7 +76,11 @@ export class App extends Component<{}, AppState> {
 					onDataChange={ ( record, datos )=> window.alert(`Los datos cambiaron => ${ record.name }. El numero total de registros es ${ datos.length }`) }
 				/>
 				<br/><br/>
-				< Cripto criptos={[ { cripto: 'Bitcoin', precio: '40000'}, { cripto: 'Cardano', precio: '0,80'} ]}/>
+				< Cripto criptos={ criptos }/>
+
+				<br/><br/>
+				< Cars cars={ cars }/>
+				<br/>
 			</div>
 		)
 	}
