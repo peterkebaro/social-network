@@ -4,6 +4,12 @@ import { User } from "../user/user";
  * This class will take care of user storage or persistence
  */
 export class UserStore {
+    static async login(userName: string, password: string): Promise<User> {
+				const response = await fetch( `http://localhost:3000/users?name=${ userName }&password=${ password }` )
+				const datos = await response.json()
+
+        return this.fillUserObject( datos[0] )
+    }
 
 	/**
 	 * Stores a user in the store (database)
@@ -68,17 +74,29 @@ export class UserStore {
 
 		const datos = await response.json()
 
+		return this.fillUserObject( datos )
+	}
+
+	static async getUserByName(name: string ): Promise<User> {
+		const response = await fetch(`http://localhost:3000/users?name=${name}`)
+		const datos = await response.json()
+
+		return this.fillUserObject( datos[0] )
+	}
+
+	private static async fillUserObject( data: any ): Promise<User> {
+		if ( !data ) return undefined
+		
 		const user = new User()
 
-		user.name = datos.name
-		user.nick = datos.nick
-		user.password = datos.password
-		user.email = datos.email
-		user.bio = datos.bio
-		user.picture = datos.picture
+		user.name = data.name
+		user.nick = data.nick
+		user.password = data.password
+		user.email = data.email
+		user.bio = data.bio
+		user.picture = data.picture
 		
 		return user
-
 	}
 
 	static deleteUser( id: number ): Promise<void> {

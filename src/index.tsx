@@ -47,7 +47,7 @@ export class App extends Component<{}, AppState> {
 		return (
 			<div className="">
 				<Navbar className="main-menu">
-					<h2>Piar</h2>
+					<h2>Canary Social Network</h2>
 					<img src="./src/pruebas/images/bird.jpeg"/>
 					<a href="#" className="menu-item" onClick={ ()=>this.menuNavClicked(NavMenus.pruebas)}>Pruebas</a> 
 					<a href="#" className="menu-item" onClick={ ()=>this.menuNavClicked(NavMenus.usuario)}>Usuario</a>
@@ -71,7 +71,7 @@ export class App extends Component<{}, AppState> {
 						// </div>
 					}
 				</div>
-				< Agenda 
+				{/* < Agenda 
 					datos={[ { name: 'Pepe', tel: '5555555'}, { name: 'Ana', tel: '66666666'} ]}
 					onDataChange={ ( record, datos )=> window.alert(`Los datos cambiaron => ${ record.name }. El numero total de registros es ${ datos.length }`) }
 				/>
@@ -80,7 +80,7 @@ export class App extends Component<{}, AppState> {
 
 				<br/><br/>
 				< Cars cars={ cars }/>
-				<br/>
+				<br/> */}
 			</div>
 		)
 	}
