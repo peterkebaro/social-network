@@ -1,7 +1,7 @@
+import { Persistent  } from "../store/store"
 
-
-export class User {
-    readonly id?: number
+export class User implements Persistent {
+    public id: number
     public name: string
 	public nick: string
     public password: string
@@ -9,4 +9,7 @@ export class User {
     public bio: string
     public picture: string
     
+    entityName = 'users'
 }
+
+Persistent.registerPersistentFactory( 'users', ()=> new User() )

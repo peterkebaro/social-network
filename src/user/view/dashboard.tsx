@@ -20,23 +20,6 @@ export class Dashboard extends Component<{}, DashboardState> {
 
     }
 
-    signUp() {
-
-        
-
-    }
-
-    unsubscribe() {
-
-        
-
-    }
-
-    userState() {
-
-
-    }
-
     render() {
         const { currentUser } = this.state
         console.log( currentUser )
@@ -52,14 +35,10 @@ export class Dashboard extends Component<{}, DashboardState> {
                     }
                     
                 </div>
-                <div> 
-                    <button onClick={ () => this.signUp() }>Alta</button>
-                    <button onClick={ () => this.unsubscribe() }>Baja</button>
-                    <button onClick={ () => this.userState() }>Estado</button>    
-                </div>    
-                {/* <div>
+                  
+                <div>
                     <Profile />
-                </div> */}
+                </div>
                 
             </div>
         )

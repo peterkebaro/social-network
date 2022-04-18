@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import { UserStore } from '../../store/user-store'
 import {User} from '../user'
+import { RestStore, GenericStore, MemStore } from '../../store/store'
 
-
-interface ProfileState extends User {
+interface ProfileState extends Partial<User> {
     allUsers: User[]
 }
 
@@ -15,8 +14,8 @@ interface ProfileProps {
 export class Profile extends Component <ProfileProps, ProfileState>{
 
     constructor ( props: ProfileProps ) {
-
         super ( props )
+        this.store = new RestStore()
         this.state =  { ...props.user, allUsers:[] }
         
     }
@@ -28,10 +27,10 @@ export class Profile extends Component <ProfileProps, ProfileState>{
 
 	async updateUser(user: User) {
         if ( user.id ) {
-            await UserStore.update( user )
+            await this.store.update( user )
         }
         else {
-            await UserStore.save( user )
+            await this.store.save( user )
         }
 
         this.setState({
@@ -41,7 +40,8 @@ export class Profile extends Component <ProfileProps, ProfileState>{
             email: '',
             picture: '',
             password: '',
-            id: undefined     
+            id: undefined,  
+            entityName: ''   
         })
 
         await this.updateUserList()
@@ -53,20 +53,35 @@ export class Profile extends Component <ProfileProps, ProfileState>{
         })
 	}
 
-    async deleteUser( id: number) {
-        await UserStore.deleteUser( id )
+    async deleteUser( user: User ) {
+        await this.store.delete( user )
         await this.updateUserList()
     }
 
     async updateUserList() {
         this.setState({
-            allUsers: await UserStore.getAll()
+            allUsers: await this.store.findAll( new User().entityName ) as User[]
         })
+    }
+
+    getUserFromState(): User {
+        const user = new User()
+  
+        user.name = this.state.name
+        user.nick = this.state.nick
+        user.bio = this.state.bio
+        user.email = this.state.email
+        user.picture = this.state.picture
+        user.password = this.state.password
+        user.id = this.state.id
+        user.entityName = this.state.entityName
+
+        return user
     }
 
     render () {
     
-        const { name, nick, bio, email, picture, password, id } = this.state
+        const { name, nick, bio, email, picture, password, id, entityName } = this.state
         const {allUsers} = this.state
 
         return (
@@ -93,7 +108,7 @@ export class Profile extends Component <ProfileProps, ProfileState>{
                 <label>Foto: </label>
                 <input value={ picture || '' } onChange={ event => this.setState({ picture: event.target.value }) }/><br/><br/> 
 				
-                <button onClick={ ()=>this.updateUser({ id, name, nick, bio, email, picture, password })}>
+                <button onClick={ ()=>this.updateUser( this.getUserFromState() )}>
                     { id === undefined ? 'Save User' : 'Update User' }
                 </button>
                 <br/><br/>
@@ -104,7 +119,7 @@ export class Profile extends Component <ProfileProps, ProfileState>{
                         {usuario.name},  
                         {usuario.email}            
                         {<button onClick={ ()=> this.editUser( usuario )}>Editar</button>}
-                        {<button onClick={ ()=> this.deleteUser( usuario.id )}>Borrar</button>}
+                        {<button onClick={ ()=> this.deleteUser( usuario )}>Borrar</button>}
                     </li> 
                 ))}
 
@@ -114,5 +129,5 @@ export class Profile extends Component <ProfileProps, ProfileState>{
 
     }
 
-
+    private store: GenericStore
 }

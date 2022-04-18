@@ -1,33 +1,49 @@
 {
   "users": [
     {
-      "id": 2,
+      "entityName": "users",
       "name": "Adua",
       "nick": "sdfas",
       "bio": "",
-      "email": "fghfh",
+      "email": "1234123",
       "picture": "",
-      "password": "fghgfh"
+      "password": "1234",
+      "id": 2
     },
     {
-      "name": "fasdfa",
+      "entityName": "users",
+      "name": "Pablo",
       "email": "asdfas",
-      "password": "dfasd",
+      "password": "1234",
       "id": 3
     },
     {
+      "entityName": "users",
       "name": "Raul",
+      "nick": "@raul",
+      "bio": "dfdffd",
+      "email": "",
+      "picture": "",
       "password": "1234",
       "id": 4
     },
     {
+      "entityName": "users",
       "name": "Pepito",
-      "nick": "",
-      "bio": "",
-      "email": "pepito@",
-      "picture": "",
+      "nick": "@pepito",
+      "bio": "1234",
+      "email": "pepito@34",
+      "picture": "45",
       "password": "1234",
       "id": 5
+    }
+  ],
+  "tweets": [
+    {
+      "body": "Here is the text body of the tweet",
+      "dateTime": 233454556,
+      "userNick": "@raul",
+      "entityName": "tweets"
     }
   ]
 }

@@ -18,8 +18,8 @@ enum NavMenus { none, pruebas, usuario }
 
 interface AppState {
 	selectedNavMenu: NavMenus
-	criptos: any[]
-	cars: any[]
+	// criptos: any[]
+	// cars: any[]
 }
 
 export class App extends Component<{}, AppState> {
@@ -27,8 +27,8 @@ export class App extends Component<{}, AppState> {
 		super( props )
 		this.state = {
 			selectedNavMenu: NavMenus.none,
-			criptos: [ { cripto: 'Bitcoin', precio: 55000}, { cripto: 'Cardano', precio: 0.80 } ],
-			cars: [ { marca: 'Audi', precio: 30000}, { marca: 'Bmw', precio:50000}, { marca: 'Porsche', precio:80000} ]
+			// criptos: [ { cripto: 'Bitcoin', precio: 55000}, { cripto: 'Cardano', precio: 0.80 } ],
+			// cars: [ { marca: 'Audi', precio: 30000}, { marca: 'Bmw', precio:50000}, { marca: 'Porsche', precio:80000} ]
 		}
 	}
 
@@ -42,7 +42,7 @@ export class App extends Component<{}, AppState> {
 	}
 
 	render() {
-		const { selectedNavMenu, criptos, cars } = this.state
+		const { selectedNavMenu} = this.state  //criptos y cars si lo activas
 
 		return (
 			<div className="">

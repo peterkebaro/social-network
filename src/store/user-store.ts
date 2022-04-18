@@ -4,12 +4,12 @@ import { User } from "../user/user";
  * This class will take care of user storage or persistence
  */
 export class UserStore {
-    static async login(userName: string, password: string): Promise<User> {
+		static async login(userName: string, password: string): Promise<User> {
 				const response = await fetch( `http://localhost:3000/users?name=${ userName }&password=${ password }` )
 				const datos = await response.json()
 
-        return this.fillUserObject( datos[0] )
-    }
+				return this.fillUserObject( datos[0] )
+		}
 
 	/**
 	 * Stores a user in the store (database)
