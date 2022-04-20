@@ -43,7 +43,15 @@
       "body": "Here is the text body of the tweet",
       "dateTime": 233454556,
       "userNick": "@raul",
-      "entityName": "tweets"
+      "entityName": "tweets",
+      "id": 1
+    },
+    {
+      "entityName": "tweets",
+      "body": "Hola amigo!",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 2
     }
   ]
 }

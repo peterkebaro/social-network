@@ -28,7 +28,7 @@ export class Dashboard extends Component<{}, DashboardState> {
 
             <div className="dashboard">
 
-                <div>
+                <div className="signIn">
                     { currentUser
                         ?<PrincipalView user = {currentUser}/>
                         :<LoginUser onUserLogin={ user => this.setState({ currentUser: user }) } />
@@ -37,7 +37,7 @@ export class Dashboard extends Component<{}, DashboardState> {
                 </div>
                   
                 <div>
-                    <Profile />
+                    {/* <Profile /> */}
                 </div>
                 
             </div>

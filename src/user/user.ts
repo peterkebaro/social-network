@@ -9,6 +9,7 @@ export class User implements Persistent {
     public bio: string
     public picture: string
     
+    
     entityName = 'users'
 }
 

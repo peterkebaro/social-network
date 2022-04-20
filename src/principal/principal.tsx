@@ -1,43 +1,59 @@
 import React, { Component } from "react";
 import { User } from '../user/user';
 import { RestStore, GenericStore, MemStore, Persistent } from '../store/store';
+import { Profile } from "../user/view/profile";
+import { Tweet } from "../tweets/tweet";
 
 interface UserProps {
-    user: User
+    tweet?: Tweet
+    user?: User
 }
 
 interface PrincipalState {
-    tweetArea: string
+    allTweets: Tweet[]
+    tweet?: Tweet
+    body: string
+    dateTime: number
+    userNick: string
+    id: number
 }
 
 export class PrincipalView extends Component <UserProps, PrincipalState> {
 
     constructor (props) {
 
-        super(props)
+        super(props) 
 
         this.store = new RestStore
-        this.state ={
-            tweetArea: ''
-        }
-
+        this.state = { 
+            allTweets:[],
+            body: '',
+            dateTime: 12,
+            userNick: this.props.user.nick,
+            id: this.props.user.id
+        } 
     }
 
-    async sendTweet(text: string) {
+    async sendTweet(tweet: Tweet) {
 
-        let feed = []
-
-        feed.push({
-            body: text, 
-            dateTime: 121234,
-            userNick: this.props.user.name
+        await this.store.save( tweet )
+        
+        this.setState({
+            body: 'Type your Tweet'
         })
+    
+    }
 
-        await this.store.save( feed[0] )
+    getTweetFromState(): Tweet {
 
-        this.setState({ 
-            tweetArea: 'Type your Tweet' 
-        })
+        const tweet = new Tweet()
+  
+        tweet.body = this.state.body
+        tweet.dateTime = this.state.dateTime
+        tweet.userNick = this.state.userNick
+        tweet.id = this.state.id
+
+        return tweet
 
     }
 
@@ -48,20 +64,22 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
         return(
 
             <div>
-                
-                { `User ${ this.props.user.name } is logged in` } <br/><br/>
+                <div className="principalView">
+                    { `User ${ this.props.user.name } is logged in` } <br/><br/>
 
-                <textarea 
-                    className="tweetAreaPrincipal"
-                    placeholder="Type your Tweet"
-                    value={this.state.tweetArea}
-                    onChange={ ( event ) => this.setState({tweetArea: event.target.value})}
-                />
-                <br/>
-                <button onClick={ () => this.sendTweet(this.state.tweetArea)}>Send Tweet</button>
-                <p>{this.props.user.id}</p>
-                {/* { this.store.findAll( element => <li key={element}>{element} by {this.props.user.name}</li> ) } */}
-           
+                    <textarea 
+                        className="tweetAreaPrincipal"
+                        placeholder="Type your Tweet"
+                        value={this.state.body}
+                        onChange={ ( event ) => this.setState({body: event.target.value})}
+                    />
+                    <br/>
+                    <button onClick={ () => this.sendTweet(this.getTweetFromState())}>Send Tweet</button>
+                </div>
+
+                <div>
+                    <Profile/>    
+                </div>
             </div>
         )
     }

@@ -11,7 +11,7 @@ export class Persistent {
 		return Persistent.factories[ entityName ]
 	}
 
-	// getInstance( entityName: string, .... ): Persistent { // User Tweet 
+	//getInstance( entityName: string, .... ): Persistent { // User Tweet 
 	// }
 
 	private static factories = {}
