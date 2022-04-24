@@ -9,7 +9,7 @@ interface UserProps {
     user?: User
 }
 
-interface PrincipalState {
+interface PrincipalState extends Partial<Tweet>{
     allTweets: Tweet[]
     tweet?: Tweet
     body: string
@@ -41,6 +41,8 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
         this.setState({
             body: 'Type your Tweet'
         })
+
+        this.updateTweetList()
     
     }
 
@@ -57,9 +59,15 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
 
     }
 
+    async updateTweetList() {
+        this.setState({
+            allTweets: await this.store.findAll( new Tweet().entityName ) as Tweet[]
+        })
+    }
+
     render () {
 
-        
+        const {allTweets} = this.state
 
         return(
 
@@ -76,9 +84,19 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
                     <br/>
                     <button onClick={ () => this.sendTweet(this.getTweetFromState())}>Send Tweet</button>
                 </div>
+                <div>
+                    {allTweets.map( tweet => (
+                    <li key={ tweet.id }>
+                        {tweet.userNick} -{'>'}  
+                        {tweet.body}            
+                    </li> 
+                ))}
+                </div>
 
                 <div>
-                    <Profile/>    
+                    {/*Como ir a Profile limpiando todo el dashboard*/}
+                    <button onClick={ () => <Profile/>}>Edit Profile</button>
+                    {/* <Profile/>     */}
                 </div>
             </div>
         )

@@ -52,6 +52,34 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 2
+    },
+    {
+      "entityName": "tweets",
+      "body": "Hola amigo!",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 3
+    },
+    {
+      "entityName": "tweets",
+      "body": "Blablabla",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 4
+    },
+    {
+      "entityName": "tweets",
+      "body": "Prueba!",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 5
+    },
+    {
+      "entityName": "tweets",
+      "body": "Prueba 2",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 6
     }
   ]
 }

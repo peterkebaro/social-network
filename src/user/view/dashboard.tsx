@@ -35,11 +35,7 @@ export class Dashboard extends Component<{}, DashboardState> {
                     }
                     
                 </div>
-                  
-                <div>
-                    {/* <Profile /> */}
-                </div>
-                
+     
             </div>
         )
     }    
