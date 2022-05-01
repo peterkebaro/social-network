@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { LoginUser } from "./login";
-import {Profile} from "./profile";
 import { User } from '../user'
 import { PrincipalView } from "../../principal/principal";
 

@@ -80,6 +80,13 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 6
+    },
+    {
+      "entityName": "tweets",
+      "body": "Ey, como andan!",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 7
     }
   ]
 }

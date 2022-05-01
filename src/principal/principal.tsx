@@ -30,7 +30,8 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
             body: '',
             dateTime: 12,
             userNick: this.props.user.nick,
-            id: this.props.user.id
+            id: this.props.user.id,
+            editProfile: false
         } 
     }
 
@@ -65,10 +66,18 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
         })
     }
 
+    
+
+    editThisProfile() {
+       this.setState( {
+           editProfile: true
+       })
+    }
+
     render () {
 
-        const {allTweets} = this.state
-
+        const {allTweets, editProfile} = this.state
+        
         return(
 
             <div>
@@ -94,9 +103,10 @@ export class PrincipalView extends Component <UserProps, PrincipalState> {
                 </div>
 
                 <div>
-                    {/*Como ir a Profile limpiando todo el dashboard*/}
-                    <button onClick={ () => <Profile/>}>Edit Profile</button>
-                    {/* <Profile/>     */}
+                    {editProfile 
+                        ?<Profile/>
+                        :<button onClick={ () => this.editThisProfile() }>Edit Profile</button>
+                    }
                 </div>
             </div>
         )

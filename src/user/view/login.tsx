@@ -57,7 +57,7 @@ export class LoginUser extends Component <LoginUserProps,LoginUserState> {
 
         return(
 
-            <div>
+            <div className="loginUser">
                 
                 <h2>Sign In</h2><br/>
                 <input 

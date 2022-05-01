@@ -30,7 +30,7 @@ input {
 .contador {
 
 	button {
-		background-color: green;
+		background-color: blue;
 		color: white;
 		border-radius: 15px;
 		border-width: 0px;
@@ -166,9 +166,15 @@ input {
 
 .signIn {
 
-	position: flex;
-	align-items: center;
+	justify-content: center;
 	
+}
+
+.loginUser {
+	display: flex;
+	float: right;
+	position: absolute;
+	justify-content: center;
 }
 
 .principalView {
