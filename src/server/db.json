@@ -87,6 +87,34 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 7
+    },
+    {
+      "entityName": "tweets",
+      "body": "Prueba del Tweet 20",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 8
+    },
+    {
+      "entityName": "tweets",
+      "body": "Prueba 1283419284",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 9
+    },
+    {
+      "entityName": "tweets",
+      "body": "Prueba 124125",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 10
+    },
+    {
+      "entityName": "tweets",
+      "body": "Buenas tardes señores, cómo va la cosa",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 11
     }
   ]
 }

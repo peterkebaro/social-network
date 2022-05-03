@@ -1,79 +1,81 @@
 import React, { Component } from "react";
 import { PrincipalView } from "../../principal/principal";
 import { UserStore } from "../../store/user-store";
-import { User } from '../user'
+import { User } from "../user";
 
 interface LoginUserState {
-    userName: string,
-    password: string
+    userName: string;
+    password: string;
 }
 
 interface LoginUserProps {
-    onUserLogin: ( user: User ) => void
+    onUserLogin: (user: User) => void;
 }
 
-export class LoginUser extends Component <LoginUserProps,LoginUserState> {
-
-    constructor (props) {
-
-        super(props)
+export class LoginUser extends Component<LoginUserProps, LoginUserState> {
+    constructor(props) {
+        super(props);
         this.state = {
-            userName: '',
-            password: ''
-        }
-
-
+            userName: "",
+            password: "",
+        };
     }
 
-    async loginUser(pass: string){
-
-        const verifiedUser = await UserStore.login( this.state.userName, this.state.password )
+    async loginUser(pass: string) {
+        const verifiedUser = await UserStore.login(
+            this.state.userName,
+            this.state.password
+        );
         // const allUsers = await UserStore.getUserByName( this.state.userName )
         //console.log(allUsers)
-       
+
         // const veryfiedPass = allUsers.find( (element) => element.password === pass && element.name === this.state.userName )
         // console.log(veryfiedPass)
-        
-        if ( verifiedUser != undefined ) {
-            this.props.onUserLogin( verifiedUser )
+
+        if (verifiedUser != undefined) {
+            this.props.onUserLogin(verifiedUser);
             //CARGAR la página principal.tsx <PrincipalView/>
             //No sé como limpiar la ventana y poner solo el componente que quiero
             //No sé como meterle un alert en el "else" de debajo para decir que el usuario/password no son correctos
-            
-        }
-
-        else {
-            window.alert('User not found')
+        } else {
+            window.alert("User not found");
             this.setState({
-                userName: '',
-                password: ''
-            })
-
+                userName: "",
+                password: "",
+            });
         }
-
     }
 
-    render(){
-
-        return(
-
+    render() {
+        return (
             <div className="loginUser">
-                
-                <h2>Sign In</h2><br/>
-                <input 
+                <h2>Sign In</h2>
+                <br />
+                <input
                     placeholder="User"
                     value={this.state.userName}
-                    onChange={ ( event ) => this.setState({userName: event.target.value })}
-                /><br/>
-                <input 
+                    onChange={(event) =>
+                        this.setState({ userName: event.target.value })
+                    }
+                />
+                <br />
+                <input
                     placeholder="password"
                     type="password"
                     value={this.state.password}
-                    onChange={ ( event ) => this.setState({password: event.target.value})}
-                /><br/>
-                <button onClick={() => this.loginUser(this.state.password)}>Login User</button>
-            </div>  
-
-        )
+                    onChange={(event) =>
+                        this.setState({ password: event.target.value })
+                    }
+                />
+                <br />
+                <br />
+                <button
+                    className="loginButton"
+                    onClick={() => this.loginUser(this.state.password)}
+                >
+                    Login User
+                </button>
+            </div>
+        );
     }
 }
