@@ -9,6 +9,11 @@ export class User implements Persistent {
     public bio: string;
     public picture: string;
 
+    // address: {
+    //     calle: string
+    //     poblacion: string
+    // }
+
     entityName = "users";
 }
 

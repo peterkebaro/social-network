@@ -1,7 +1,11 @@
-export class Persistent {
+type PersistentConstructor = () => Persistent;
+export interface FactoryCollection {
+    [key: string]: PersistentConstructor;
+}
+export abstract class Persistent {
     id: number;
     readonly entityName: string;
-    [key: string]: any;
+    [key: string]: any; //TODO: eliminar
 
     static registerPersistentFactory(
         entityName: string,
@@ -10,29 +14,32 @@ export class Persistent {
         Persistent.factories[entityName] = factory;
     }
 
-    static getFactory(entityName: string) {
-        return Persistent.factories[entityName];
-    }
-
-    //getInstance( entityName: string, .... ): Persistent { // User Tweet
-    // }
     static getObjectInstance(data: any): Persistent {
         if (!data) return undefined;
-
-        const entityConstructor: PersistentConstructor = Persistent.getFactory(
-            data.entityName
-        );
-        const instance = entityConstructor();
+        let instance = Persistent.createInstance(data.entity);
 
         Object.assign(instance, data);
+        // structuredClone()
 
         return instance;
     }
 
-    private static factories = {};
+    static createInstance(entityName: string) {
+        const factory = Persistent.factories[entityName];
+        if (!factory)
+            throw new Error(`La entidad ${entityName} no ha sido registrada`);
+        return factory();
+    }
+
+    private static factories: FactoryCollection = {
+        // 'users': ()=>new User()
+    };
 }
 
-type PersistentConstructor = () => Persistent;
+// Persistent.registerPersistentFactory( 'users', ()=>new User() )
+
+// const createUser = ()=>new User()
+// createUser()
 
 export interface GenericStore {
     save(obj: Persistent): Promise<void>;
@@ -111,3 +118,10 @@ export class RestStore implements GenericStore {
         }) as unknown as Promise<void>;
     }
 }
+
+function suma(a: number, b: number) {
+    return a - b;
+}
+
+expect(suma(2, 4)).toBe(6);
+expect(suma(25, 10)).toBe(35);

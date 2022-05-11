@@ -115,6 +115,20 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 11
+    },
+    {
+      "entityName": "tweets",
+      "body": "fdgfdg",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 12
+    },
+    {
+      "entityName": "tweets",
+      "body": "12",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 13
     }
   ]
 }
