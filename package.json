@@ -7,11 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "build": "webpack --mode=production",
-    "server": "json-server --watch db.json"
+    "server": "json-server --no-cors --watch src/server/db.json"
   },
   "author": "Pedro Rodriguez",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^26.0.20",
     "@types/react": "^17.0.0",
     "css-loader": "^5.0.2",
@@ -31,5 +34,11 @@
     "webpack": "^5.19.0",
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "bulma": "^0.9.2"
   }
 }

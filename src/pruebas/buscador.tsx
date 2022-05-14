@@ -1,4 +1,3 @@
-import "../styles.scss";
 import React, { ChangeEvent, Component } from "react";
 
 interface Amigo {
