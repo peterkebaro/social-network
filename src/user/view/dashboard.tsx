@@ -1,41 +1,38 @@
 import React, { Component } from "react";
 import { LoginUser } from "./login";
-import { User } from '../user'
+import { User } from "../user";
 import { PrincipalView } from "../../principal/principal";
 
-
 interface DashboardState {
-    currentUser: User
+    currentUser: User;
 }
 
 export class Dashboard extends Component<{}, DashboardState> {
-
-    constructor (props) {
-
-        super(props)
+    constructor(props) {
+        super(props);
         this.state = {
-            currentUser: undefined
-        }
-
+            currentUser: undefined,
+        };
     }
 
     render() {
-        const { currentUser } = this.state
-        console.log( currentUser )
+        const { currentUser } = this.state;
+        console.log(currentUser);
 
-        return(
-
+        return (
             <div className="dashboard">
-
                 <div className="signIn">
-                    { currentUser
-                        ?<PrincipalView user = {currentUser}/>
-                        :<LoginUser onUserLogin={ user => this.setState({ currentUser: user }) } />
-                    }
-                    
+                    {currentUser ? (
+                        <PrincipalView user={currentUser} />
+                    ) : (
+                        <LoginUser
+                            onUserLogin={(user) =>
+                                this.setState({ currentUser: user })
+                            }
+                        />
+                    )}
                 </div>
-     
             </div>
-        )
-    }    
+        );
+    }
 }

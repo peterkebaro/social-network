@@ -71,6 +71,7 @@ export class TablaN extends Component<TableNProps, TablaNState> {
                         </button>
                     }
                 </div>
+                <br />
                 <div className="container tabla-n">
                     {tablero.map((fila, i) =>
                         fila.map((casilla, j) => (
@@ -84,10 +85,11 @@ export class TablaN extends Component<TableNProps, TablaNState> {
                         ))
                     )}
                 </div>
+                <br />
                 {winner !== 0 && (
                     <h2 className="winner">Ha ganado el jugador {winner}</h2>
                 )}
-
+                <br />
                 <button onClick={() => onCancel()}>Volver</button>
             </div>
         );

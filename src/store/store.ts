@@ -16,7 +16,7 @@ export abstract class Persistent {
 
     static getObjectInstance(data: any): Persistent {
         if (!data) return undefined;
-        let instance = Persistent.createInstance(data.entity);
+        let instance = Persistent.createInstance(data.entityName);
 
         Object.assign(instance, data);
         // structuredClone()
@@ -47,28 +47,6 @@ export interface GenericStore {
     findById(id: number, entityName: string): Promise<Persistent>;
     findAll(entityName: string): Promise<Persistent[]>;
     delete(obj: Persistent): Promise<void>;
-}
-
-export class MemStore implements GenericStore {
-    save(obj: Persistent): Promise<void> {
-        throw "not implemented";
-    }
-
-    update(obj: Persistent): Promise<void> {
-        throw "not implemented";
-    }
-
-    findById(id: number, entityName: string): Promise<Persistent> {
-        throw "not implemented";
-    }
-
-    findAll(entityName: string): Promise<Persistent[]> {
-        throw "not implementes";
-    }
-
-    delete(obj: Persistent): Promise<void> {
-        throw "not implemented";
-    }
 }
 
 export class RestStore implements GenericStore {
@@ -118,10 +96,3 @@ export class RestStore implements GenericStore {
         }) as unknown as Promise<void>;
     }
 }
-
-function suma(a: number, b: number) {
-    return a - b;
-}
-
-expect(suma(2, 4)).toBe(6);
-expect(suma(25, 10)).toBe(35);

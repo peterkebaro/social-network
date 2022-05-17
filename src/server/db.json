@@ -5,7 +5,7 @@
       "name": "Adua",
       "nick": "sdfas",
       "bio": "",
-      "email": "1234123",
+      "email": "adua@gmail.com",
       "picture": "",
       "password": "1234",
       "id": 2
@@ -13,7 +13,7 @@
     {
       "entityName": "users",
       "name": "Pablo",
-      "email": "asdfas",
+      "email": "JJJJJJ",
       "password": "1234",
       "id": 3
     },
@@ -26,16 +26,6 @@
       "picture": "",
       "password": "1234",
       "id": 4
-    },
-    {
-      "entityName": "users",
-      "name": "Pepito",
-      "nick": "@pepito",
-      "bio": "1234",
-      "email": "pepito@34",
-      "picture": "45",
-      "password": "1234",
-      "id": 5
     }
   ],
   "tweets": [
@@ -129,6 +119,48 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 13
+    },
+    {
+      "entityName": "tweets",
+      "body": "",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 14
+    },
+    {
+      "entityName": "tweets",
+      "body": "",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 15
+    },
+    {
+      "entityName": "tweets",
+      "body": "Bla",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 16
+    },
+    {
+      "entityName": "tweets",
+      "body": "jssghsfdgjd",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 17
+    },
+    {
+      "entityName": "tweets",
+      "body": "",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 18
+    },
+    {
+      "entityName": "tweets",
+      "body": "sdgfadsfga",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 19
     }
   ]
 }
