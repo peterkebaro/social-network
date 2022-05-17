@@ -2,17 +2,8 @@
   "users": [
     {
       "entityName": "users",
-      "name": "Adua",
-      "nick": "sdfas",
-      "bio": "",
-      "email": "adua@gmail.com",
-      "picture": "",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "entityName": "users",
       "name": "Pablo",
+      "nick": "jgjhghj",
       "email": "JJJJJJ",
       "password": "1234",
       "id": 3
@@ -161,6 +152,13 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 19
+    },
+    {
+      "entityName": "tweets",
+      "body": "hjgjkgkghft fhfjkfj",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 20
     }
   ]
 }
