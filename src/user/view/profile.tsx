@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { User } from "../user";
-import { RestStore, GenericStore, MemStore } from "../../store/store";
+import { GenericStore } from "../../store/store";
+import { RestStore } from "../../store/rest-store";
 
 interface ProfileState extends Partial<User> {
     allUsers: User[];

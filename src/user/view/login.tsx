@@ -48,33 +48,38 @@ export class LoginUser extends Component<LoginUserProps, LoginUserState> {
 
     render() {
         return (
-            <div className="loginUser">
-                <h2>Sign In</h2>
-                <br />
-                <input
-                    placeholder="User"
-                    value={this.state.userName}
-                    onChange={(event) =>
-                        this.setState({ userName: event.target.value })
-                    }
-                />
-                <br />
-                <input
-                    placeholder="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={(event) =>
-                        this.setState({ password: event.target.value })
-                    }
-                />
-                <br />
-                <br />
-                <button
-                    className="loginButton"
-                    onClick={() => this.loginUser(this.state.password)}
-                >
-                    Login User
-                </button>
+            <div className="loginView">
+                <div className="principalPicture">
+                    <img src="../../src/img/main.jpg" />
+                </div>
+                <div className="loginUser">
+                    <h2>Sign In</h2>
+                    <br />
+                    <input
+                        placeholder="User"
+                        value={this.state.userName}
+                        onChange={(event) =>
+                            this.setState({ userName: event.target.value })
+                        }
+                    />
+                    <br />
+                    <input
+                        placeholder="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={(event) =>
+                            this.setState({ password: event.target.value })
+                        }
+                    />
+                    <br />
+                    <br />
+                    <button
+                        className="loginButton"
+                        onClick={() => this.loginUser(this.state.password)}
+                    >
+                        Login User
+                    </button>
+                </div>
             </div>
         );
     }

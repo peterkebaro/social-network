@@ -1,35 +1,5 @@
-# Definicion del Proyecto de Mi Twitter
+# Canary Social Network
 
-## Cosas para hacer
+This is my first project, based on React for the front-end and writed in Typescript.
 
--   Gestión usuario
--   Entrar el tweet
--   pantalla principal
-    -   Izquierda: Foto perfil y descripción
-    -   Centro: Muro de tweets
-    -   Derecha: Jugar al tik-tok
-
-## Gestión usuario
-
-### Como es un usuario (como estructura de datos)
-
--   Nombre
--   Nick
--   Password
--   Correo
--   Bio
--   Foto
-
-### Funcionalidades
-
--   Dar de alta un usuario ( signup )
--   Login
--   Editar otros datos
-
-```js
-const pp = 67;
-```
-
-> propuesta
-
-mark
+This project is a social network application which has a CRUD for user management, also for message-feed management and the possibility to play the game Tik Tak Toe.

@@ -9,7 +9,7 @@ input {
 }
 
 .body-container {
-    margin-top: $menu-height + 3em;
+    margin-top: $menu-height;
 }
 
 .buscador {
@@ -49,19 +49,23 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    color: rgb(28, 48, 135);
+}
+
 label {
     color: gray;
 }
 
 input {
     border: none;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid rgb(48, 102, 219);
 }
 
 .container {
     background-image: url("./src/pruebas/images/base.jpg");
     margin: auto;
-    width: 40%;
+    width: 80%;
     border-radius: 8%;
     display: grid;
     padding-top: 15px;
@@ -138,27 +142,69 @@ input {
     text-align: center;
 }
 
+button {
+    background-color: rgb(255, 255, 255);
+    border-color: #f6f9f9;
+    color: rgb(10, 61, 90);
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #eff3f6 inset, 0 0 0 0 #3498db;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
 .loginButton {
-    background-color: rgb(100, 237, 150);
+    background-color: rgb(126, 193, 238);
+    border-color: #3498db;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+.loginButton:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
 
 .principalView {
     display: flex;
-    justify-content: space-between;
 }
 
 .typeATweet {
+    flex: auto;
     text-align: center;
-    background-color: #72ee7251;
+    background-color: #53e0f651;
+    padding: 10px 0 10px 0;
 }
 
 .feedTweets {
+    flex: auto;
     list-style: none;
     text-align: center;
+    padding: 10px 0 10px 0;
+    height: 700px;
 }
 
 .tikTakToe {
+    flex: auto;
     text-align: center;
     align-items: center;
-    background-color: #72ee7251;
+    background-color: #53e0f651;
+    padding: 10px 0 10px 0;
+}
+
+.loginView {
+    display: flex;
+}
+
+.principalPicture img {
+    width: 90%;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.loginUser {
+    width: 50%;
+    align-items: center;
+    padding-top: 10%;
 }

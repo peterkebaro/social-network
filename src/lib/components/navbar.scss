@@ -1,56 +1,55 @@
 @import "../../styles/styles";
 
 .navbar {
-	width: 100%;
-	min-height: $menu-height;
-	background-color: #FDFEE0;
-	position: fixed;
-	top: 0;
-	display: inline-flex;
-	align-items: center;
+    width: 100%;
+    min-height: $menu-height;
+    background-color: rgb(126, 193, 238);
+    position: fixed;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
 
-	h2 {
-		margin: 0;
-		color: rgb(99, 180, 133);
-		padding: 0 1em;
-		font-size: xx-large;
-	}
+    h2 {
+        margin: 0;
+        color: rgb(28, 48, 135);
+        padding: 0 1em;
+        font-size: xx-large;
+    }
 
-	img {
-		max-height: 3em;
-	}
-	
-	a {
-		background-color: #FDFEE0;
-		padding: 1em;
-		// min-height: 3em;
-		color: rgb(99, 180, 133);
-		text-decoration: none;
-	
-		&:hover {
-			background-color: #DCF9E4;
-			color: rgb(99, 180, 133);
-		}
-	}
+    img {
+        max-height: 3em;
+    }
 
-	// @media all and (max-width: 400px) {
-	&.mobile {
-		display: block;
-		
-		img {
-			display: none;
-		}
-		h2 {
-			font-size: medium;
-		}
-	}
+    a {
+        background-color: rgb(126, 193, 238);
+        padding: 1em;
+        // min-height: 3em;
+        color: rgb(28, 48, 135);
+        text-decoration: none;
 
-	.menu-item {
-		display: block;
-	}
+        &:hover {
+            background-color: rgb(102, 184, 238);
+            color: rgb(10, 61, 213);
+        }
+    }
 
-	&.hide-menu-items .menu-item {
-		display: none;
-	}
+    // @media all and (max-width: 400px) {
+    &.mobile {
+        display: block;
 
+        img {
+            display: none;
+        }
+        h2 {
+            font-size: medium;
+        }
+    }
+
+    .menu-item {
+        display: block;
+    }
+
+    &.hide-menu-items .menu-item {
+        display: none;
+    }
 }

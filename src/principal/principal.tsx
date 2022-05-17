@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { User } from "../user/user";
-import { RestStore, GenericStore, MemStore, Persistent } from "../store/store";
+import { GenericStore, Persistent } from "../store/store";
+import { RestStore } from "../store/rest-store";
 import { Profile } from "../user/view/profile";
 import { Tweet } from "../tweets/tweet";
 import { TablaN } from "../pruebas/tablan";
@@ -70,8 +71,7 @@ export class PrincipalView extends Component<UserProps, PrincipalState> {
         return (
             <div className="principalView">
                 <div className="typeATweet">
-                    {`User ${this.props.user.name} is logged in`} <br />
-                    <br />
+                    <h3>Say something to the community!</h3>
                     <textarea
                         className="tweetAreaPrincipal"
                         placeholder="Type your Tweet"
@@ -81,11 +81,15 @@ export class PrincipalView extends Component<UserProps, PrincipalState> {
                         }
                     />
                     <br />
+                    <br />
                     <button
                         onClick={() => this.sendTweet(this.getTweetFromState())}
                     >
                         Send Tweet
                     </button>
+                    <br />
+                    <br />
+                    <h4>{`User ${this.props.user.name} is logged in`}</h4>{" "}
                     <div className="editProfile">
                         {editProfile ? (
                             <Profile
@@ -105,8 +109,9 @@ export class PrincipalView extends Component<UserProps, PrincipalState> {
                     </div>
                 </div>
                 <div className="feedTweets">
-                    ¡Welcome to CSN!
+                    <h2>¡Welcome to CSN!</h2>
                     <br />
+
                     {allTweets.map((tweet) => (
                         <li key={tweet.id}>
                             {tweet.userNick} -{"> "}

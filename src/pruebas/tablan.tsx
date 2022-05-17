@@ -51,7 +51,6 @@ export class TablaN extends Component<TableNProps, TablaNState> {
     jugadaOrdenador() {
         let espacios: number[] = casillasVacias();
         const tablero = ponerFicha(espacios);
-        //const tablero = bestMove (espacios)
 
         this.setState({
             tablero: tablero,
@@ -71,23 +70,24 @@ export class TablaN extends Component<TableNProps, TablaNState> {
                         </button>
                     }
                 </div>
+                <br />
                 <div className="container tabla-n">
                     {tablero.map((fila, i) =>
                         fila.map((casilla, j) => (
                             <div
                                 key={j + 2}
                                 onClick={() => this.changeColor(i, j)}
-                                // style={{ backgroundImage: "url(${playerColor[casilla]})" }}
                             >
                                 <img src={playerColor[casilla]} width="50px" />
                             </div>
                         ))
                     )}
                 </div>
+                <br />
                 {winner !== 0 && (
                     <h2 className="winner">Ha ganado el jugador {winner}</h2>
                 )}
-
+                <br />
                 <button onClick={() => onCancel()}>Volver</button>
             </div>
         );
