@@ -51,7 +51,6 @@ export class TablaN extends Component<TableNProps, TablaNState> {
     jugadaOrdenador() {
         let espacios: number[] = casillasVacias();
         const tablero = ponerFicha(espacios);
-        //const tablero = bestMove (espacios)
 
         this.setState({
             tablero: tablero,
@@ -78,7 +77,6 @@ export class TablaN extends Component<TableNProps, TablaNState> {
                             <div
                                 key={j + 2}
                                 onClick={() => this.changeColor(i, j)}
-                                // style={{ backgroundImage: "url(${playerColor[casilla]})" }}
                             >
                                 <img src={playerColor[casilla]} width="50px" />
                             </div>

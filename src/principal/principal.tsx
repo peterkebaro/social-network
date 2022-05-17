@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { User } from "../user/user";
-import { RestStore, GenericStore, Persistent } from "../store/store";
+import { GenericStore, Persistent } from "../store/store";
+import { RestStore } from "../store/rest-store";
 import { Profile } from "../user/view/profile";
 import { Tweet } from "../tweets/tweet";
 import { TablaN } from "../pruebas/tablan";
