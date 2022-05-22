@@ -159,6 +159,13 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 20
+    },
+    {
+      "entityName": "tweets",
+      "body": "asfasdf",
+      "dateTime": 12,
+      "userNick": "@raul",
+      "id": 21
     }
   ]
 }
