@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { LoginUser } from "./login";
 import { User } from "../user";
 import { PrincipalView } from "../../principal/principal";
+import { Profile } from "./profile";
 
 interface DashboardState {
     currentUser: User;
