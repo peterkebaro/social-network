@@ -1,24 +1,33 @@
-import { GenericStore } from "./store";
-import { Persistent } from "./store";
+import { GenericStore } from "./store"
+import { Persistent } from "./store"
 
 export class MemStore implements GenericStore {
-    save(obj: Persistent): Promise<void> {
-        throw "not implemented";
+    async save(obj: Persistent): Promise<void> {
+        this._store.push(obj)
+        // return Promise.resolve()
     }
 
-    update(obj: Persistent): Promise<void> {
-        throw "not implemented";
+    async update(obj: Persistent): Promise<void> {
+        const foundIndex = this._store.findIndex((element) => element.id === obj.id)
+        this._store[foundIndex] = obj
     }
 
-    findById(id: number, entityName: string): Promise<Persistent> {
-        throw "not implemented";
+    async findById(id: number, entityName: string): Promise<Persistent> {
+        const found = this._store.find((element) => element.id === id)
+        if (!found) return
+
+        return Persistent.getObjectInstance(found)
     }
 
-    findAll(entityName: string): Promise<Persistent[]> {
-        throw "not implementes";
+    async findAll(entityName: string): Promise<Persistent[]> {
+        return this._store.map((element) => element.entityName === entityName)
     }
 
-    delete(obj: Persistent): Promise<void> {
-        throw "not implemented";
+    async delete(obj: Persistent): Promise<void> {
+
+        const foundIndex = this._store.findIndex((element) => element.id === obj.id)
+        this._store.slice(foundIndex)
     }
+
+    private _store: Persistent[] = []
 }

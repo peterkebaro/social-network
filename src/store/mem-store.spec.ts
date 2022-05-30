@@ -1,40 +1,127 @@
-describe("MemStore", () => {
-    xit("should store an entity", () => {
-        expect.assertions(1);
-    });
-});
+import { MemStore } from "./mem-store";
+import { Persistent } from "./store";
 
-function mistery(x: number) {
-    if (x === 0) return 1;
-    if (x === 1) return 3;
-
-    let acum0 = 1;
-    let acum1 = 3;
-    for (let i = 2; i <= x; i++) {
-        const antAcum1 = acum1;
-        acum1 = acum0 + acum1;
-        acum0 = antAcum1;
-    }
-    return acum1;
+class TestPersistent extends Persistent {
+    entityName = "TestPersistent";
+    aNumber: number;
+    aString: string;
 }
 
-describe("Tonterias del profe", () => {
-    describe("Una funcion matematica desconocida", () => {
-        it("should return 1 for param 0", () => {
-            expect(mistery(0)).toBe(1);
-        });
+Persistent.registerPersistentFactory(
+    "TestPersistent",
+    () => new TestPersistent()
+);
 
-        it("should return 3 for param 1", () => {
-            expect(mistery(1)).toBe(3);
-        });
+class NewPersistent extends Persistent {
+    entityName = "NewPersistent"
+    aNumber: number
+    newValue: string
+    address: { 
+        street: string
+        city: string
+    }
+}
 
-        it("should return the last element of a series of x elements (past as parameter) where the last number is the sum of the previous 2 numbers", () => {
-            expect(mistery(2)).toBe(4);
-            expect(mistery(3)).toBe(7);
-            expect(mistery(4)).toBe(11);
-            expect(mistery(5)).toBe(18);
-            expect(mistery(6)).toBe(29);
-            expect(mistery(7)).toBe(47);
-        });
+Persistent.registerPersistentFactory( "NewPersistent", ()=>new NewPersistent() )
+
+describe("MemStore", () => {
+    let memStore: MemStore;
+
+    beforeEach(() => {
+        //tear-up
+        memStore = new MemStore();
     });
+
+    it("should store an entity", async () => {
+        const entity = new TestPersistent()
+        entity.aNumber = 234
+        entity.aString = "Test string"
+
+        await memStore.save(entity)
+
+        const result = (await memStore.findById(
+            entity.id,
+            entity.entityName
+        )) as TestPersistent;
+
+        expect(result.aNumber).toEqual(entity.aNumber)
+        expect(result.aString).toEqual(entity.aString)
+        expect(result).toBeInstanceOf(TestPersistent)
+    });
+
+    it("should update an entity", async () => {
+        const entity = new TestPersistent()
+        entity.aNumber = 234
+        entity.aString = "Test string"
+
+        await memStore.save(entity)
+
+        const updateEntity = new TestPersistent()
+        updateEntity.id = entity.id
+        updateEntity.aNumber = 100
+        updateEntity.aString = "Update string"
+        
+        memStore.update(updateEntity)
+
+        const result = (await memStore.findById(
+            entity.id,
+            entity.entityName
+        )) as TestPersistent;
+            
+        expect(result.aNumber).toEqual(updateEntity.aNumber)
+        expect(result.aString).toEqual(updateEntity.aString)
+    })
+
+    // it("should delete an entity", async () => {
+    //     const entity = new TestPersistent()
+    //     entity.aNumber = 234
+    //     entity.aString = "Test string"
+    //     console.log(entity)
+    //     memStore.delete(entity)
+    //     console.log(entity)
+
+    //     const result = (await memStore.findById(
+    //         entity.id,
+    //         entity.entityName
+    //     )) as TestPersistent;
+
+    //     expect(result).toEqual(undefined)
+
+    // })
+
+    it( 'should store NewPersistent entities', async ()=>{
+        const newEntity  = new NewPersistent()
+
+        newEntity.newValue = "ValorNuevo"
+        newEntity.address = {
+            city: "Las Palmas",
+            street: "Camelia"
+        }
+
+        await memStore.save(newEntity)
+
+        const  result =  await memStore.findById (newEntity.id, newEntity.entityName ) as NewPersistent
+
+        expect(result.newValue).toEqual(newEntity.newValue)
+        expect(result.address.city).toEqual(newEntity.address.city)
+        expect(result.address.street).toEqual(newEntity.address.street)
+    })
+
+    it( 'should find all elements of same entity even we store several entities', async ()=>{
+        const entity = new TestPersistent()
+        const newEntity = new NewPersistent()
+
+        entity.aNumber = 100
+        newEntity.aNumber = 100
+
+        await memStore.save( entity )
+        await memStore.save( newEntity )
+
+        const allTestPersistent = memStore.findAll(entity.entityName)
+
+        expect( allTestPersistent ).toHaveLength( 1 )
+    })
 });
+
+
+
