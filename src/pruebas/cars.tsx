@@ -10,7 +10,8 @@ interface Data {
     priceCar: number;
 }
 interface CarsProps {
-    carsData: Data[];
+    carsData: Data[]
+    onDataChange: ( carsData: Data ) => void
 }
 export class Cars extends Component<CarsProps, CarsState> {
     constructor(props: CarsProps) {

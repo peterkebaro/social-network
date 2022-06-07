@@ -4,7 +4,7 @@ import { Buscador } from "./buscador";
 import { Reloj } from "./reloj";
 import { TablaN } from "./tablan";
 import { Cajetin } from "./cajetin";
-import { Cars } from "./cars";
+
 
 export function Pruebas() {
     return (
@@ -15,8 +15,6 @@ export function Pruebas() {
             <Counter startOn={5} />
             <Buscador />
             <Reloj />
-            {/* <TablaN size={3}/> */}
-            <Cars carsData={[{ car: "Audi", priceCar: 32500 }]} />
         </div>
     );
 }
