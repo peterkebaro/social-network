@@ -9,7 +9,7 @@ interface ProfileState extends Partial<User> {
 
 interface ProfileProps {
     user?: User;
-    onCancel: () => void;
+    onCancel?: () => void;
 }
 
 export class Profile extends Component<ProfileProps, ProfileState> {
@@ -73,7 +73,7 @@ export class Profile extends Component<ProfileProps, ProfileState> {
         user.picture = this.state.picture;
         user.password = this.state.password;
         user.id = this.state.id;
-        user.entityName = this.state.entityName;
+        // user.entityName = this.state.entityName;
 
         return user;
     }
@@ -153,7 +153,8 @@ export class Profile extends Component<ProfileProps, ProfileState> {
                 <br />
                 <br />
 
-                {allUsers.map((usuario) => (
+                {/* Next is for map all the users and edit or delete who you select */}
+                {/* {allUsers.map((usuario) => (
                     <li key={usuario.id}>
                         {usuario.name},{usuario.email}
                         {
@@ -167,7 +168,7 @@ export class Profile extends Component<ProfileProps, ProfileState> {
                             </button>
                         }
                     </li>
-                ))}
+                ))} */}
 
                 <button onClick={() => onCancel()}>Cancelar</button>
             </div>

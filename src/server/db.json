@@ -17,6 +17,22 @@
       "picture": "",
       "password": "1234",
       "id": 4
+    },
+    {
+      "entityName": "users",
+      "name": "Peter",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "entityName": "users",
+      "name": "Gustavo",
+      "nick": "Bla",
+      "bio": "Bla",
+      "email": "sjkdfal@kasjf.com",
+      "picture": "Car",
+      "password": "gustavo",
+      "id": 6
     }
   ],
   "tweets": [
@@ -180,6 +196,13 @@
       "dateTime": 12,
       "userNick": "@raul",
       "id": 23
+    },
+    {
+      "entityName": "tweets",
+      "body": "Vamos de fiesta!",
+      "dateTime": 12,
+      "userNick": "Bla",
+      "id": 24
     }
   ]
 }

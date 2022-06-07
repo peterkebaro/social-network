@@ -20,7 +20,9 @@ export class MemStore implements GenericStore {
     }
 
     async findAll(entityName: string): Promise<Persistent[]> {
-        return this._store.map((element) => element.entityName === entityName)
+
+        return this._store.find((element) => Persistent.getObjectInstance(entityName)) as any
+        
     }
 
     async delete(obj: Persistent): Promise<void> {

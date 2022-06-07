@@ -76,7 +76,7 @@ input {
     align-items: center;
     justify-content: center;
 
-    > div {
+    >div {
         /* display: inline; */
         margin: 10px;
         // border: solid 10px #d3d3d3bb;
@@ -207,4 +207,10 @@ button {
     width: 50%;
     align-items: center;
     padding-top: 10%;
+}
+
+.profile {
+    font-size: large;
+    text-align: center;
+    padding-top: 50px;
 }
