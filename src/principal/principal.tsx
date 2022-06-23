@@ -7,25 +7,24 @@ import { Tweet } from "../tweets/tweet";
 import { TablaN } from "../pruebas/tablan";
 
 interface UserProps {
-    tweet?: Tweet
-    user?: User
+    tweet?: Tweet;
+    user?: User;
 }
 
 interface PrincipalState extends Partial<Tweet> {
-    allTweets: Tweet[]
-    tweet?: Tweet
-    body: string
-    dateTime: number
-    userNick: string
-    id: number
-    editProfile?: boolean
+    allTweets: Tweet[];
+    tweet?: Tweet;
+    body: string;
+    dateTime: number;
+    userNick: string;
+    id: number;
 }
 
 export class PrincipalView extends Component<UserProps, PrincipalState> {
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.store = new RestStore()
+        this.store = new RestStore();
         this.state = {
             allTweets: [],
             body: "",
@@ -34,7 +33,7 @@ export class PrincipalView extends Component<UserProps, PrincipalState> {
             id: this.props.user.id,
             editProfile: false,
             tikTakToe: false,
-        }
+        };
     }
 
     async sendTweet(tweet: Tweet) {
